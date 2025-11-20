@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>아무 말 대잔치 - 게시글</title>
+
+    <link rel="stylesheet" href="../css/common/common.css"/>
+    <link rel="stylesheet" href="../css/pages/postDetail.css"/>
+</head>
+<body class="app-body">
+<header class="app-header">
+    <h1 class="app-title">
+        <a href="postList.html" class="app-back" aria-label="이전 페이지로 돌아가기">
+            <span class="app-back__icon" aria-hidden="true">‹</span>
+        </a>
+        아무 말 대잔치
+    </h1>
+</header>
+
+<main class="app-main post">
+    <article class="post-shell" id="postContainer" hidden>
+        <header class="post-hero">
+            <p class="post-kicker">MESSAGE LOG</p>
+            <div class="post-hero__top">
+                <div class="post-title-wrap">
+                    <h2 class="post-title"></h2>
+                    <div class="post-meta">
+                        <span class="author">
+                            <span class="author-avatar avatar avatar--md" aria-hidden="true"></span>
+                            <strong class="post-author"></strong>
+                        </span>
+                        <time class="post-time" datetime=""></time>
+                    </div>
+                </div>
+                <div class="post-actions" role="group" aria-label="게시글 작업">
+                    <button type="button" class="btn btn--ghost" id="postEditBtn" data-action="edit">수정</button>
+                    <button type="button" class="btn btn--ghost" id="postDeleteBtn" data-action="delete">삭제</button>
+                </div>
+            </div>
+<!--            <div class="post-tags">-->
+<!--                <span class="post-tag">field note</span>-->
+<!--                <span class="post-tag post-tag&#45;&#45;dark">live feed</span>-->
+<!--                <span class="post-tag">ver. 1.0</span>-->
+<!--            </div>-->
+        </header>
+
+        <figure class="post-media" aria-label="게시글 이미지">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <img id="postImage" class="post-image" alt="게시글 이미지" hidden />
+        </figure>
+
+        <section class="post-body"></section>
+
+        <section class="post-stats" aria-label="게시글 통계">
+            <div class="stat stat--interactive" role="button" tabindex="0" aria-pressed="false">
+                <strong class="stat-num" id="likeCount">0</strong>
+                <span class="stat-label">좋아요</span>
+            </div>
+            <div class="stat">
+                <strong class="stat-num" id="viewCount">0</strong>
+                <span class="stat-label">조회수</span>
+            </div>
+            <div class="stat">
+                <strong class="stat-num" id="commentCount">0</strong>
+                <span class="stat-label">댓글</span>
+            </div>
+        </section>
+
+        <section class="comment-write" aria-label="댓글 작성">
+            <div class="comment-write__box">
+                <div class="comment-write__editor">
+                    <label for="comment" class="visually-hidden">댓글 입력</label>
+                    <textarea
+                            id="comment"
+                            class="comment-textarea"
+                            placeholder="댓글을 남겨주세요!"
+                            rows="4"
+                    ></textarea>
+                </div>
+                <div class="comment-write__actions">
+                    <button type="button" id="commentSubmitBtn" class="btn btn--primary btn-primary--disabled" data-action="comment-submit" disabled>댓글 등록</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="comment-list" aria-label="댓글 목록"></section>
+    </article>
+</main>
+<script type="module" src="../app/core/profileHeader.js"></script>
+<script type="module" src="../app/pages/postDetail.js"></script>
+</body>
+</html>

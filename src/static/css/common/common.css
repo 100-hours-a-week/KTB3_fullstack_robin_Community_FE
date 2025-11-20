@@ -1,0 +1,494 @@
+:root {
+    --bg: #f2f2f2;
+    --surface: #ffffff;
+    --text: #050505;
+    --muted: #5a5a5a;
+    --border: #050505;
+    --border-strong: #000000;
+    --accent: #000000;
+    --accent-soft: #f5f5f5;
+    --danger: #ef4444;
+    --shadow-color: #050505;
+    --shadow-offset: 8px;
+    --radius: 6px;
+    --container: 440px;
+    --font-body: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    --font-brand: 'Sandoll GogoRound', 'Noto Sans KR', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body.app-body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    letter-spacing: -0.2px;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+button, input, textarea, select {
+    font-family: var(--font-body);
+    color: inherit;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.app-header {
+    width: 100%;
+    border-bottom: 3px solid var(--border);
+    height: 120px;
+    background: var(--surface);
+    position: relative;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 rgba(0, 0, 0, 0.15);
+}
+
+.app-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+    padding: 20px 36px;
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+    background: var(--surface);
+    font-family: var(--font-brand);
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    overflow: visible;
+}
+
+.app-title .app-back,
+.app-title .app-profile {
+    width: auto;
+    height: 56px;
+    min-width: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    font-weight: 700;
+    border: 3px solid var(--border);
+    background: var(--accent-soft);
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: 5px 5px 0 var(--shadow-color);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.app-title .app-back {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -28px;
+    margin-right: 50px;
+}
+
+.app-title .app-back:hover,
+.app-title .app-profile:hover,
+.app-title .app-back:focus-visible,
+.app-title .app-profile:focus-visible {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--shadow-color);
+}
+
+.app-back__icon {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.app-title .app-profile {
+    gap: 14px;
+    background: var(--surface);
+    border-radius: 999px;
+    appearance: none;
+    position: relative;
+    z-index: 50;
+}
+
+.app-title .app-profile-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    overflow: visible;
+}
+
+.app-title .app-profile[data-state="open"] {
+    background: var(--accent);
+    color: #fff;
+}
+
+.app-profile__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9d9d9;
+    border: 2px solid var(--border);
+    overflow: hidden;
+}
+
+.app-profile__label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.profile-menu {
+    position: relative;
+    left: 150%;
+    margin-left: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity .25s ease, transform .3s ease;
+    z-index: 60;
+}
+
+.profile-menu.is-open {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.profile-menu__item {
+    width: 120px;
+    display: block;
+    padding: 10px 14px;
+    border: 3px solid var(--border);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    background: var(--surface);
+    text-align: center;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+    transition: transform .2s ease, background .2s ease;
+    position: relative;
+}
+
+.profile-menu__item:hover,
+.profile-menu__item:focus-visible {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.app-main {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px 80px;
+}
+
+.card {
+    width: 100%;
+    max-width: var(--container);
+}
+
+.card--auth {
+    background: var(--surface);
+    border: 3px solid var(--border);
+    padding: 48px 40px;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+}
+
+.card-title {
+    text-align: left;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 12px 12px;
+    text-transform: uppercase;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    margin-top: 4px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form {
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.label {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 3px solid var(--border);
+    background: var(--surface);
+    border-radius: 0;
+    font-size: 15px;
+    box-shadow: 4px 4px 0 var(--shadow-color);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.input::placeholder {
+    color: var(--muted);
+    text-transform: none;
+}
+
+.input:focus {
+    outline: none;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.helper {
+    font-size: 12px;
+    margin: 6px 0 0 0;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.helper--error {
+    color: var(--danger);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border: 3px solid var(--border);
+    font-weight: 800;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translate(-2px, -2px);
+    box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 var(--shadow-color);
+}
+
+.btn:disabled,
+.btn.is-busy {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn--block {
+    width: 90%;
+    margin-top: 24px;
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn--primary {
+    min-width: 160px;
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn--ghost {
+    background: var(--surface);
+}
+
+.sub-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.sub-link .link {
+    text-decoration: underline;
+}
+
+.avatar,
+.app-profile__avatar,
+.author-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(217, 217, 217, 1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid var(--border);
+    overflow: hidden;
+    vertical-align: middle;
+    font-weight: 600;
+    color: #555;
+}
+
+.avatar--sm,
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.avatar--md,
+.app-profile__avatar {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+}
+
+.app-main .card + .card {
+    margin-top: 24px;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+/* Modal */
+html.modal-open,
+body.modal-open,
+body.app-body.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal__dialog {
+    width: 440px;
+    padding: 48px 36px;
+    background: var(--surface);
+    border: 4px solid var(--border);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+    position: relative;
+}
+
+.modal__title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+}
+
+.modal__message {
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 24px 0;
+}
+
+.modal__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.btn--modal {
+    width: 150px;
+    background: var(--surface);
+}
+
+.btn--modal-cancel {
+    background: #111;
+    color: #fff;
+}
+
+.btn--modal-confirm {
+    background: var(--accent-soft);
+}
+
+@media (max-width: 900px) {
+    .app-title {
+        position: static;
+        transform: none;
+        margin: 24px auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-title .app-back,
+    .app-title .app-profile {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .profile-menu {
+        left: auto;
+        right: 16px;
+    }
+}

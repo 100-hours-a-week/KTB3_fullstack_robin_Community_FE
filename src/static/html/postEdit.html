@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>아무 말 대잔치 - 게시글 수정</title>
+
+    <link rel="stylesheet" href="../css/common/common.css"/>
+    <link rel="stylesheet" href="../css/pages/postEditor.css"/>
+</head>
+<body class="app-body">
+<header class="app-header">
+    <h1 class="app-title">
+        <a href="postDetail.html" class="app-back" aria-label="이전 페이지로 돌아가기">
+            <span class="app-back__icon" aria-hidden="true">‹</span>
+        </a>
+        아무 말 대잔치
+    </h1>
+</header>
+
+<main class="app-main">
+    <section class="editor-panel" aria-labelledby="editorTitle">
+        <header class="editor-hero">
+            <p class="editor-kicker">POST CONTROL ROOM</p>
+            <h2 class="editor-title" id="editorTitle">게시글 수정</h2>
+            <p class="editor-description">
+                이미 방송된 문장을 손보고 있습니다. 문맥을 지키면서도 더 정확한 신호를 올려주세요.
+                수정이 완료되면 자동으로 상세 페이지에서 반영됩니다.
+            </p>
+<!--            <div class="editor-meta">-->
+<!--                <span class="editor-meta__item">MODE: EDIT</span>-->
+<!--                <span class="editor-meta__item editor-meta__item&#45;&#45;accent">DOC STATUS: ACTIVE</span>-->
+<!--            </div>-->
+        </header>
+
+        <form class="form edit-form editor-form" action="#" method="post" enctype="multipart/form-data" novalidate>
+            <div class="editor-field">
+                <div class="editor-field__header">
+                    <label for="title" class="label editor-label">제목*</label>
+                    <span class="editor-field__badge">필수</span>
+                </div>
+
+                <div class="field-line">
+                    <input id="title"
+                           name="title"
+                           type="text"
+                           class="field-input field-input--title"
+                           placeholder="제목을 입력해주세요."/>
+                </div>
+                <p class="helper helper--error editor-title-helper" aria-live="polite">&nbsp;</p>
+            </div>
+
+            <div class="editor-field">
+                <div class="editor-field__header">
+                    <label for="content" class="label editor-label">내용*</label>
+                    <span class="editor-field__badge">필수</span>
+                </div>
+                <div class="field-line field-line--textarea">
+                    <textarea id="content"
+                              name="content"
+                              class="field-textarea"
+                              placeholder="내용을 입력해주세요."></textarea>
+                </div>
+                <p class="helper helper--error editor-body-helper" aria-live="polite">&nbsp;</p>
+            </div>
+
+            <div class="editor-field editor-field--file">
+                <div class="editor-field__header">
+                    <span class="label editor-label">이미지</span>
+                    <span class="editor-field__badge">선택</span>
+                </div>
+
+                <div class="file-row">
+                    <input type="file" id="image" name="image" accept="image/*" class="visually-hidden"/>
+                    <label for="image" class="file-trigger" tabindex="0">파일 선택</label>
+                    <span class="file-message" aria-live="polite">파일을 선택해주세요.</span>
+                </div>
+            </div>
+
+            <div class="editor-actions">
+                <button type="submit" class="btn btn--block">수정하기</button>
+            </div>
+        </form>
+    </section>
+</main>
+<script type="module" src="../app/core/profileHeader.js"></script>
+<script type="module" src="../app/pages/postEdit.js"></script>
+</body>
+</html>

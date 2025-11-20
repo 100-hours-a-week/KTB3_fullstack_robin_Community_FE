@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>아무 말 대잔치 - 게시글 목록</title>
+
+  <link rel="stylesheet" href="../css/common/common.css"/>
+  <link rel="stylesheet" href="../css/pages/postList.css"/>
+</head>
+<body class="app-body">
+<header class="app-header">
+    <h1 class="app-title">
+        아무 말 대잔치
+    </h1>
+</header>
+
+<main class="app-main">
+  <section class="feed">
+      <div class="feed-hero">
+          <p class="feed-kicker">COMMUNITY BROADCAST</p>
+          <div class="feed-hero__row">
+              <h2 class="feed-title">게시판 브리핑</h2>
+<!--              <span class="feed-stamp" aria-hidden="true">LIVE</span>-->
+          </div>
+          <p class="feed-description">
+              지구 반대편의 고민부터 오늘 먹은 메뉴까지, 모든 단락이 실시간으로 쌓이는 공간입니다.
+              아래 로그북을 훑어보고 새로운 신호를 남겨주세요.
+          </p>
+<!--          <div class="feed-hero__meta">-->
+<!--              <span class="feed-pill">#stream</span>-->
+<!--              <span class="feed-pill feed-pill&#45;&#45;dark">∞ entries</span>-->
+<!--              <span class="feed-pill">since 2024</span>-->
+<!--          </div>-->
+          <div class="write-toolbar">
+              <a href="postWrite.html" class="btn btn--primary write-btn">게시글 작성</a>
+          </div>
+      </div>
+
+      <section class="feed-list" aria-label="게시글 목록">
+
+      <template id="post-card-template">
+        <article class="post-card" role="article" tabindex="0">
+          <header class="post-head">
+            <h2 class="post-title"></h2>
+            <time class="post-time" datetime=""></time>
+          </header>
+          <div class="post-meta">
+            <span class="post-like"></span>
+            <span class="post-comment"></span>
+            <span class="post-view"></span>
+          </div>
+          <hr class="post-divider" />
+          <footer class="post-foot">
+            <div class="author">
+              <span class="author-avatar avatar avatar--md" aria-hidden="true"></span>
+              <span class="author-name"></span>
+            </div>
+          </footer>
+        </article>
+      </template>
+      </section>
+
+      <div class="feed-loader" role="status" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="loader-text">더 불러오는 중...</span>
+      </div>
+      <div id="infinite-scroll-sentinel" aria-hidden="true"></div>
+  </section>
+</main>
+
+<script type="module" src="../app/core/profileHeader.js"></script>
+<script type="module" src="../app/pages/postList.js"></script>
+</body>
+</html>
