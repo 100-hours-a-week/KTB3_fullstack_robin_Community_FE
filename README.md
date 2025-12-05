@@ -8,7 +8,8 @@
 
 ### 소개영상
 ![소개영상+(1) (1)](https://github.com/user-attachments/assets/9835f474-bbd1-4185-befa-2926ed3ad462)
-- 음성포함)고화질 영상 링크 : [![그나저나_소개영상](www.youtube.com)](https://youtu.be/mygmCDOUXP4)
+- 동영상 크기 제한으로 인해 여러 번 압축한 탓에 영상 색감이 나쁩니다. 고화질 영상은 아래 링크를 참고해주세요!
+- 원본 영상 링크 : [![그나저나_소개영상](www.youtube.com)](https://youtu.be/mygmCDOUXP4)
 
 
 ## 제공 기능
